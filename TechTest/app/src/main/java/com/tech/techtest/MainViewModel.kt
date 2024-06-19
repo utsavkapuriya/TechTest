@@ -5,16 +5,18 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(private val apiService: RetrofitService): ViewModel() {
     var movieListResponse:List<Movie> by mutableStateOf(listOf())
     private var errorMessage: String by mutableStateOf("")
     fun getMovieList() {
         viewModelScope.launch {
-            val retrofitService = RetrofitService.getInstance()
             try {
-                val movieList = retrofitService.getMovies()
+                val movieList = apiService.getMovies()
                 movieListResponse = movieList
             }
             catch (e: Exception) {

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.devtools.ksp") version "1.8.22-1.0.11"
 }
 
 android {
@@ -66,4 +67,12 @@ dependencies {
 
     //coil
     implementation libs.coil.compose
+
+    //Dagger - HiltMainApplication
+    implementation libs.hilt.android
+    ksp libs.hilt.android.compiler
+    implementation libs.androidx.hilt.lifecycle.viewmodel
+    ksp libs.androidx.hilt.compiler
+    implementation(libs.symbol.processing.api)
+
 }
