@@ -1,4 +1,4 @@
-package com.example.jetpackcomposemvvmretrofitandrecyclerview
+package com.tech.techtest
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -9,12 +9,12 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
     var movieListResponse:List<Movie> by mutableStateOf(listOf())
-    var errorMessage: String by mutableStateOf("")
+    private var errorMessage: String by mutableStateOf("")
     fun getMovieList() {
         viewModelScope.launch {
-            val apiService = ApiService.getInstance()
+            val retrofitService = RetrofitService.getInstance()
             try {
-                val movieList = apiService.getMovies()
+                val movieList = retrofitService.getMovies()
                 movieListResponse = movieList
             }
             catch (e: Exception) {

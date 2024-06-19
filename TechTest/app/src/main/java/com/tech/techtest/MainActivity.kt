@@ -7,8 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import com.example.jetpackcomposemvvmretrofitandrecyclerview.MainViewModel
-import com.tech.techtest.composable.MovieList
+import com.tech.techtest.ui.composable.MovieList
 import com.tech.techtest.ui.theme.TechTestTheme
 
 class MainActivity : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.tech.techtest.composable
+package com.tech.techtest.ui.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,7 +28,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Scale
 import coil.transform.CircleCropTransformation
-import com.example.jetpackcomposemvvmretrofitandrecyclerview.Movie
+import com.tech.techtest.Movie
 import com.tech.techtest.R
 
 @Composable
@@ -44,13 +44,11 @@ fun MovieItem(movie: Movie, index: Int, selectedIndex: Int, onClick: (Int) -> Un
             .height(110.dp), shape = RoundedCornerShape(8.dp), elevation = CardDefaults.cardElevation(8.dp)
     ) {
         Surface(color = backgroundColor) {
-
             Row(
                 Modifier
                     .padding(4.dp)
                     .fillMaxSize()
             ) {
-
                 Image(
                     painter = rememberAsyncImagePainter(
                         ImageRequest.Builder(LocalContext.current).data(data = movie.imageUrl)
@@ -65,7 +63,6 @@ fun MovieItem(movie: Movie, index: Int, selectedIndex: Int, onClick: (Int) -> Un
                         .fillMaxHeight()
                         .weight(0.2f,fill = true)
                 )
-
                 Column(
                     verticalArrangement = Arrangement.Center,
                     modifier = Modifier
