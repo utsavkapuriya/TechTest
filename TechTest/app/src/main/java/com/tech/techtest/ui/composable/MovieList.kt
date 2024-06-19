@@ -7,7 +7,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.tech.techtest.Movie
+import com.tech.techtest.model.Movie
 
 @Composable
 fun MovieList(movieList: List<Movie>) {

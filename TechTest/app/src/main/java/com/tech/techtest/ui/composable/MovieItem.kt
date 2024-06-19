@@ -28,7 +28,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Scale
 import coil.transform.CircleCropTransformation
-import com.tech.techtest.Movie
+import com.tech.techtest.model.Movie
 import com.tech.techtest.R
 
 @Composable
