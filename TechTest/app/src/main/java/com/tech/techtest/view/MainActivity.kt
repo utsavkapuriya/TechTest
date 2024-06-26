@@ -10,7 +10,9 @@ import androidx.compose.material3.Surface
 import com.tech.techtest.ui.composable.MovieList
 import com.tech.techtest.ui.theme.TechTestTheme
 import com.tech.techtest.viewmodel.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     private val mainViewModel: MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
