@@ -18,7 +18,6 @@ class MainViewModel @Inject constructor(
     private val movieRepository: MovieRepository): ViewModel() {
     private val _moviesData = MutableLiveData<List<Movie>>()
     val movieList: LiveData<List<Movie>> = _moviesData
-//    private val movieRepository = MovieRepository()
 
     private var errorMessage: String by mutableStateOf("")
 
