@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.tech.techtest.viewmodel.MainViewModel
@@ -14,10 +14,11 @@ import com.tech.techtest.viewmodel.MainViewModel
 @Composable
 fun MovieList(viewModel: MainViewModel) {
     val usersState by viewModel.movieList.observeAsState()
+    val error by viewModel.errorMessage.observeAsState(initial = "No Records found")
     LaunchedEffect(Unit) {
         viewModel.getMovieList()
     }
-    var selectedIndex by remember { mutableStateOf(-1) }
+    var selectedIndex by remember { mutableIntStateOf(-1) }
     usersState?.let {
         LazyColumn {
             itemsIndexed(items = it) { index, item ->
@@ -26,6 +27,5 @@ fun MovieList(viewModel: MainViewModel) {
                 }
             }
         }
-    }
-
+    } ?: ErrorMessage(displayText = error)
 }

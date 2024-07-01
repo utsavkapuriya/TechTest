@@ -1,8 +1,5 @@
 package com.tech.techtest.viewmodel
 
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -17,9 +14,9 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
     private val movieRepository: MovieRepository): ViewModel() {
     private val _moviesData = MutableLiveData<List<Movie>>()
+    private val _error = MutableLiveData<String>()
     val movieList: LiveData<List<Movie>> = _moviesData
-
-    private var errorMessage: String by mutableStateOf("")
+    val errorMessage: LiveData<String> = _error
 
     fun getMovieList() {
         viewModelScope.launch {
@@ -28,7 +25,7 @@ class MainViewModel @Inject constructor(
                 _moviesData.value = movie
             }
             catch (e: Exception) {
-                errorMessage = e.message.toString()
+                _error.value = e.message.toString()
             }
         }
     }
