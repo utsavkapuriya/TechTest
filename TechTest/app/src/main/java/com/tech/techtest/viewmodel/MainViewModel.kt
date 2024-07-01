@@ -9,12 +9,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tech.techtest.data.MovieRepository
 import com.tech.techtest.model.Movie
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel: ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val movieRepository: MovieRepository): ViewModel() {
     private val _moviesData = MutableLiveData<List<Movie>>()
     val movieList: LiveData<List<Movie>> = _moviesData
-    private val movieRepository = MovieRepository()
+//    private val movieRepository = MovieRepository()
 
     private var errorMessage: String by mutableStateOf("")
 
