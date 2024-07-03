@@ -1,4 +1,4 @@
-package com.tech.techtest.view
+package com.tech.techtest.presentation.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
