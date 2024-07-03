@@ -1,4 +1,4 @@
-package com.tech.techtest.ui.theme
+package com.tech.techtest.presentation.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

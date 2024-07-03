@@ -1,4 +1,4 @@
-package com.tech.techtest.ui.theme
+package com.tech.techtest.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,5 +1,6 @@
-package com.tech.techtest.api
+package com.tech.techtest.di
 
+import com.tech.techtest.data.source.MovieApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -23,7 +24,7 @@ object RetrofitModule {
 
     @Provides
     @Singleton
-    fun provideApiService(retrofit: Retrofit): RetrofitService =
-        retrofit.create(RetrofitService::class.java)
+    fun provideApiService(retrofit: Retrofit): MovieApiService =
+        retrofit.create(MovieApiService::class.java)
 
 }

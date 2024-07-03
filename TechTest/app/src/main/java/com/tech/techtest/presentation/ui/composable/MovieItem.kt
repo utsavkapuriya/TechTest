@@ -1,4 +1,4 @@
-package com.tech.techtest.ui.composable
+package com.tech.techtest.presentation.ui.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -28,7 +28,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Scale
 import coil.transform.CircleCropTransformation
-import com.tech.techtest.model.Movie
+import com.tech.techtest.domain.model.Movie
 import com.tech.techtest.R
 
 @Composable
